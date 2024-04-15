@@ -8,6 +8,9 @@ message Tile {
   optional int32 groundId = 1;
   optional bool isWalkable = 2;
   repeated int32 items = 3;
+
+  int32 X = 4;
+  int32 Y = 5;
 }
 
 message MapFloor {

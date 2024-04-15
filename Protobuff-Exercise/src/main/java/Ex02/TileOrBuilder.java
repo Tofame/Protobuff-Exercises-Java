@@ -45,4 +45,16 @@ public interface TileOrBuilder extends
    * @return The items at the given index.
    */
   int getItems(int index);
+
+  /**
+   * <code>int32 X = 4;</code>
+   * @return The x.
+   */
+  int getX();
+
+  /**
+   * <code>int32 Y = 5;</code>
+   * @return The y.
+   */
+  int getY();
 }

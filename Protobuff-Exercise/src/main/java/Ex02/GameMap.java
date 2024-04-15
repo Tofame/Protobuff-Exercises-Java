@@ -38,13 +38,13 @@ public final class GameMap {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\rGameMap.proto\"a\n\004Tile\022\025\n\010groundId\030\001 \001(" +
+      "\n\rGameMap.proto\"w\n\004Tile\022\025\n\010groundId\030\001 \001(" +
       "\005H\000\210\001\001\022\027\n\nisWalkable\030\002 \001(\010H\001\210\001\001\022\r\n\005items" +
-      "\030\003 \003(\005B\013\n\t_groundIdB\r\n\013_isWalkable\"B\n\010Ma" +
-      "pFloor\022\024\n\007floorId\030\004 \001(\005H\000\210\001\001\022\024\n\005tiles\030\005 " +
-      "\003(\0132\005.TileB\n\n\010_floorId\"(\n\tGameWorld\022\033\n\010m" +
-      "apFloor\030\001 \003(\0132\t.MapFloorB\024\n\016GeneratedPro" +
-      "toH\001P\001b\006proto3"
+      "\030\003 \003(\005\022\t\n\001X\030\004 \001(\005\022\t\n\001Y\030\005 \001(\005B\013\n\t_groundI" +
+      "dB\r\n\013_isWalkable\"B\n\010MapFloor\022\024\n\007floorId\030" +
+      "\004 \001(\005H\000\210\001\001\022\024\n\005tiles\030\005 \003(\0132\005.TileB\n\n\010_flo" +
+      "orId\"(\n\tGameWorld\022\033\n\010mapFloor\030\001 \003(\0132\t.Ma" +
+      "pFloorB\024\n\016GeneratedProtoH\001P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -55,7 +55,7 @@ public final class GameMap {
     internal_static_Tile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Tile_descriptor,
-        new String[] { "GroundId", "IsWalkable", "Items", "GroundId", "IsWalkable", });
+        new String[] { "GroundId", "IsWalkable", "Items", "X", "Y", "GroundId", "IsWalkable", });
     internal_static_MapFloor_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_MapFloor_fieldAccessorTable = new

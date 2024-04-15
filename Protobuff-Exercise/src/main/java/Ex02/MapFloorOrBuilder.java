@@ -19,26 +19,26 @@ public interface MapFloorOrBuilder extends
   int getFloorId();
 
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   java.util.List<Tile>
-      getTilesList();
+      getTileList();
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
-  Tile getTiles(int index);
+  Tile getTile(int index);
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
-  int getTilesCount();
+  int getTileCount();
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   java.util.List<? extends TileOrBuilder>
-      getTilesOrBuilderList();
+      getTileOrBuilderList();
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
-  TileOrBuilder getTilesOrBuilder(
+  TileOrBuilder getTileOrBuilder(
       int index);
 }

@@ -30,21 +30,21 @@ public interface TileOrBuilder extends
   boolean getIsWalkable();
 
   /**
-   * <code>repeated int32 items = 3;</code>
-   * @return A list containing the items.
+   * <code>repeated int32 item = 3;</code>
+   * @return A list containing the item.
    */
-  java.util.List<Integer> getItemsList();
+  java.util.List<Integer> getItemList();
   /**
-   * <code>repeated int32 items = 3;</code>
-   * @return The count of items.
+   * <code>repeated int32 item = 3;</code>
+   * @return The count of item.
    */
-  int getItemsCount();
+  int getItemCount();
   /**
-   * <code>repeated int32 items = 3;</code>
+   * <code>repeated int32 item = 3;</code>
    * @param index The index of the element to return.
-   * @return The items at the given index.
+   * @return The item at the given index.
    */
-  int getItems(int index);
+  int getItem(int index);
 
   /**
    * <code>int32 X = 4;</code>

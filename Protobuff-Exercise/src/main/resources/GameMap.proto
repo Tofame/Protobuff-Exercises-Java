@@ -7,7 +7,7 @@ option optimize_for = SPEED;
 message Tile {
   optional int32 groundId = 1;
   optional bool isWalkable = 2;
-  repeated int32 items = 3;
+  repeated int32 item = 3;
 
   int32 X = 4;
   int32 Y = 5;
@@ -15,7 +15,7 @@ message Tile {
 
 message MapFloor {
   optional int32 floorId = 4;
-  repeated Tile tiles = 5;
+  repeated Tile tile = 5;
 }
 
 message GameWorld {

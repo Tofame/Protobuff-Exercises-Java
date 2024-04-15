@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Tile() {
-    items_ = emptyIntList();
+    item_ = emptyIntList();
   }
 
   @Override
@@ -78,34 +78,34 @@ private static final long serialVersionUID = 0L;
     return isWalkable_;
   }
 
-  public static final int ITEMS_FIELD_NUMBER = 3;
+  public static final int ITEM_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private com.google.protobuf.Internal.IntList items_;
+  private com.google.protobuf.Internal.IntList item_;
   /**
-   * <code>repeated int32 items = 3;</code>
-   * @return A list containing the items.
+   * <code>repeated int32 item = 3;</code>
+   * @return A list containing the item.
    */
   @Override
   public java.util.List<Integer>
-      getItemsList() {
-    return items_;
+      getItemList() {
+    return item_;
   }
   /**
-   * <code>repeated int32 items = 3;</code>
-   * @return The count of items.
+   * <code>repeated int32 item = 3;</code>
+   * @return The count of item.
    */
-  public int getItemsCount() {
-    return items_.size();
+  public int getItemCount() {
+    return item_.size();
   }
   /**
-   * <code>repeated int32 items = 3;</code>
+   * <code>repeated int32 item = 3;</code>
    * @param index The index of the element to return.
-   * @return The items at the given index.
+   * @return The item at the given index.
    */
-  public int getItems(int index) {
-    return items_.getInt(index);
+  public int getItem(int index) {
+    return item_.getInt(index);
   }
-  private int itemsMemoizedSerializedSize = -1;
+  private int itemMemoizedSerializedSize = -1;
 
   public static final int X_FIELD_NUMBER = 4;
   private int x_ = 0;
@@ -150,12 +150,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeBool(2, isWalkable_);
     }
-    if (getItemsList().size() > 0) {
+    if (getItemList().size() > 0) {
       output.writeUInt32NoTag(26);
-      output.writeUInt32NoTag(itemsMemoizedSerializedSize);
+      output.writeUInt32NoTag(itemMemoizedSerializedSize);
     }
-    for (int i = 0; i < items_.size(); i++) {
-      output.writeInt32NoTag(items_.getInt(i));
+    for (int i = 0; i < item_.size(); i++) {
+      output.writeInt32NoTag(item_.getInt(i));
     }
     if (x_ != 0) {
       output.writeInt32(4, x_);
@@ -182,17 +182,17 @@ private static final long serialVersionUID = 0L;
     }
     {
       int dataSize = 0;
-      for (int i = 0; i < items_.size(); i++) {
+      for (int i = 0; i < item_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt32SizeNoTag(items_.getInt(i));
+          .computeInt32SizeNoTag(item_.getInt(i));
       }
       size += dataSize;
-      if (!getItemsList().isEmpty()) {
+      if (!getItemList().isEmpty()) {
         size += 1;
         size += com.google.protobuf.CodedOutputStream
             .computeInt32SizeNoTag(dataSize);
       }
-      itemsMemoizedSerializedSize = dataSize;
+      itemMemoizedSerializedSize = dataSize;
     }
     if (x_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -227,8 +227,8 @@ private static final long serialVersionUID = 0L;
       if (getIsWalkable()
           != other.getIsWalkable()) return false;
     }
-    if (!getItemsList()
-        .equals(other.getItemsList())) return false;
+    if (!getItemList()
+        .equals(other.getItemList())) return false;
     if (getX()
         != other.getX()) return false;
     if (getY()
@@ -253,9 +253,9 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsWalkable());
     }
-    if (getItemsCount() > 0) {
-      hash = (37 * hash) + ITEMS_FIELD_NUMBER;
-      hash = (53 * hash) + getItemsList().hashCode();
+    if (getItemCount() > 0) {
+      hash = (37 * hash) + ITEM_FIELD_NUMBER;
+      hash = (53 * hash) + getItemList().hashCode();
     }
     hash = (37 * hash) + X_FIELD_NUMBER;
     hash = (53 * hash) + getX();
@@ -394,7 +394,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       groundId_ = 0;
       isWalkable_ = false;
-      items_ = emptyIntList();
+      item_ = emptyIntList();
       x_ = 0;
       y_ = 0;
       return this;
@@ -431,10 +431,10 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartialRepeatedFields(Tile result) {
       if (((bitField0_ & 0x00000004) != 0)) {
-        items_.makeImmutable();
+        item_.makeImmutable();
         bitField0_ = (bitField0_ & ~0x00000004);
       }
-      result.items_ = items_;
+      result.item_ = item_;
     }
 
     private void buildPartial0(Tile result) {
@@ -475,13 +475,13 @@ private static final long serialVersionUID = 0L;
       if (other.hasIsWalkable()) {
         setIsWalkable(other.getIsWalkable());
       }
-      if (!other.items_.isEmpty()) {
-        if (items_.isEmpty()) {
-          items_ = other.items_;
+      if (!other.item_.isEmpty()) {
+        if (item_.isEmpty()) {
+          item_ = other.item_;
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          ensureItemsIsMutable();
-          items_.addAll(other.items_);
+          ensureItemIsMutable();
+          item_.addAll(other.item_);
         }
         onChanged();
       }
@@ -529,16 +529,16 @@ private static final long serialVersionUID = 0L;
             } // case 16
             case 24: {
               int v = input.readInt32();
-              ensureItemsIsMutable();
-              items_.addInt(v);
+              ensureItemIsMutable();
+              item_.addInt(v);
               break;
             } // case 24
             case 26: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              ensureItemsIsMutable();
+              ensureItemIsMutable();
               while (input.getBytesUntilLimit() > 0) {
-                items_.addInt(input.readInt32());
+                item_.addInt(input.readInt32());
               }
               input.popLimit(limit);
               break;
@@ -650,82 +650,82 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList items_ = emptyIntList();
-    private void ensureItemsIsMutable() {
+    private com.google.protobuf.Internal.IntList item_ = emptyIntList();
+    private void ensureItemIsMutable() {
       if (!((bitField0_ & 0x00000004) != 0)) {
-        items_ = mutableCopy(items_);
+        item_ = mutableCopy(item_);
         bitField0_ |= 0x00000004;
       }
     }
     /**
-     * <code>repeated int32 items = 3;</code>
-     * @return A list containing the items.
+     * <code>repeated int32 item = 3;</code>
+     * @return A list containing the item.
      */
     public java.util.List<Integer>
-        getItemsList() {
+        getItemList() {
       return ((bitField0_ & 0x00000004) != 0) ?
-               java.util.Collections.unmodifiableList(items_) : items_;
+               java.util.Collections.unmodifiableList(item_) : item_;
     }
     /**
-     * <code>repeated int32 items = 3;</code>
-     * @return The count of items.
+     * <code>repeated int32 item = 3;</code>
+     * @return The count of item.
      */
-    public int getItemsCount() {
-      return items_.size();
+    public int getItemCount() {
+      return item_.size();
     }
     /**
-     * <code>repeated int32 items = 3;</code>
+     * <code>repeated int32 item = 3;</code>
      * @param index The index of the element to return.
-     * @return The items at the given index.
+     * @return The item at the given index.
      */
-    public int getItems(int index) {
-      return items_.getInt(index);
+    public int getItem(int index) {
+      return item_.getInt(index);
     }
     /**
-     * <code>repeated int32 items = 3;</code>
+     * <code>repeated int32 item = 3;</code>
      * @param index The index to set the value at.
-     * @param value The items to set.
+     * @param value The item to set.
      * @return This builder for chaining.
      */
-    public Builder setItems(
+    public Builder setItem(
         int index, int value) {
 
-      ensureItemsIsMutable();
-      items_.setInt(index, value);
+      ensureItemIsMutable();
+      item_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int32 items = 3;</code>
-     * @param value The items to add.
+     * <code>repeated int32 item = 3;</code>
+     * @param value The item to add.
      * @return This builder for chaining.
      */
-    public Builder addItems(int value) {
+    public Builder addItem(int value) {
 
-      ensureItemsIsMutable();
-      items_.addInt(value);
+      ensureItemIsMutable();
+      item_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int32 items = 3;</code>
-     * @param values The items to add.
+     * <code>repeated int32 item = 3;</code>
+     * @param values The item to add.
      * @return This builder for chaining.
      */
-    public Builder addAllItems(
+    public Builder addAllItem(
         Iterable<? extends Integer> values) {
-      ensureItemsIsMutable();
+      ensureItemIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, items_);
+          values, item_);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int32 items = 3;</code>
+     * <code>repeated int32 item = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearItems() {
-      items_ = emptyIntList();
+    public Builder clearItem() {
+      item_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;

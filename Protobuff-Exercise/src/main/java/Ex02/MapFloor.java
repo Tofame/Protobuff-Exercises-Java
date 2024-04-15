@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private MapFloor() {
-    tiles_ = java.util.Collections.emptyList();
+    tile_ = java.util.Collections.emptyList();
   }
 
   @Override
@@ -59,45 +59,45 @@ private static final long serialVersionUID = 0L;
     return floorId_;
   }
 
-  public static final int TILES_FIELD_NUMBER = 5;
+  public static final int TILE_FIELD_NUMBER = 5;
   @SuppressWarnings("serial")
-  private java.util.List<Tile> tiles_;
+  private java.util.List<Tile> tile_;
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   @Override
-  public java.util.List<Tile> getTilesList() {
-    return tiles_;
+  public java.util.List<Tile> getTileList() {
+    return tile_;
   }
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   @Override
   public java.util.List<? extends TileOrBuilder>
-      getTilesOrBuilderList() {
-    return tiles_;
+      getTileOrBuilderList() {
+    return tile_;
   }
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   @Override
-  public int getTilesCount() {
-    return tiles_.size();
+  public int getTileCount() {
+    return tile_.size();
   }
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   @Override
-  public Tile getTiles(int index) {
-    return tiles_.get(index);
+  public Tile getTile(int index) {
+    return tile_.get(index);
   }
   /**
-   * <code>repeated .Tile tiles = 5;</code>
+   * <code>repeated .Tile tile = 5;</code>
    */
   @Override
-  public TileOrBuilder getTilesOrBuilder(
+  public TileOrBuilder getTileOrBuilder(
       int index) {
-    return tiles_.get(index);
+    return tile_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -117,8 +117,8 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeInt32(4, floorId_);
     }
-    for (int i = 0; i < tiles_.size(); i++) {
-      output.writeMessage(5, tiles_.get(i));
+    for (int i = 0; i < tile_.size(); i++) {
+      output.writeMessage(5, tile_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -133,9 +133,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, floorId_);
     }
-    for (int i = 0; i < tiles_.size(); i++) {
+    for (int i = 0; i < tile_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, tiles_.get(i));
+        .computeMessageSize(5, tile_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -157,8 +157,8 @@ private static final long serialVersionUID = 0L;
       if (getFloorId()
           != other.getFloorId()) return false;
     }
-    if (!getTilesList()
-        .equals(other.getTilesList())) return false;
+    if (!getTileList()
+        .equals(other.getTileList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -174,9 +174,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FLOORID_FIELD_NUMBER;
       hash = (53 * hash) + getFloorId();
     }
-    if (getTilesCount() > 0) {
-      hash = (37 * hash) + TILES_FIELD_NUMBER;
-      hash = (53 * hash) + getTilesList().hashCode();
+    if (getTileCount() > 0) {
+      hash = (37 * hash) + TILE_FIELD_NUMBER;
+      hash = (53 * hash) + getTileList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -310,11 +310,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       floorId_ = 0;
-      if (tilesBuilder_ == null) {
-        tiles_ = java.util.Collections.emptyList();
+      if (tileBuilder_ == null) {
+        tile_ = java.util.Collections.emptyList();
       } else {
-        tiles_ = null;
-        tilesBuilder_.clear();
+        tile_ = null;
+        tileBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000002);
       return this;
@@ -350,14 +350,14 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(MapFloor result) {
-      if (tilesBuilder_ == null) {
+      if (tileBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
-          tiles_ = java.util.Collections.unmodifiableList(tiles_);
+          tile_ = java.util.Collections.unmodifiableList(tile_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
-        result.tiles_ = tiles_;
+        result.tile_ = tile_;
       } else {
-        result.tiles_ = tilesBuilder_.build();
+        result.tile_ = tileBuilder_.build();
       }
     }
 
@@ -386,29 +386,29 @@ private static final long serialVersionUID = 0L;
       if (other.hasFloorId()) {
         setFloorId(other.getFloorId());
       }
-      if (tilesBuilder_ == null) {
-        if (!other.tiles_.isEmpty()) {
-          if (tiles_.isEmpty()) {
-            tiles_ = other.tiles_;
+      if (tileBuilder_ == null) {
+        if (!other.tile_.isEmpty()) {
+          if (tile_.isEmpty()) {
+            tile_ = other.tile_;
             bitField0_ = (bitField0_ & ~0x00000002);
           } else {
-            ensureTilesIsMutable();
-            tiles_.addAll(other.tiles_);
+            ensureTileIsMutable();
+            tile_.addAll(other.tile_);
           }
           onChanged();
         }
       } else {
-        if (!other.tiles_.isEmpty()) {
-          if (tilesBuilder_.isEmpty()) {
-            tilesBuilder_.dispose();
-            tilesBuilder_ = null;
-            tiles_ = other.tiles_;
+        if (!other.tile_.isEmpty()) {
+          if (tileBuilder_.isEmpty()) {
+            tileBuilder_.dispose();
+            tileBuilder_ = null;
+            tile_ = other.tile_;
             bitField0_ = (bitField0_ & ~0x00000002);
-            tilesBuilder_ = 
+            tileBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getTilesFieldBuilder() : null;
+                 getTileFieldBuilder() : null;
           } else {
-            tilesBuilder_.addAllMessages(other.tiles_);
+            tileBuilder_.addAllMessages(other.tile_);
           }
         }
       }
@@ -448,11 +448,11 @@ private static final long serialVersionUID = 0L;
                   input.readMessage(
                       Tile.parser(),
                       extensionRegistry);
-              if (tilesBuilder_ == null) {
-                ensureTilesIsMutable();
-                tiles_.add(m);
+              if (tileBuilder_ == null) {
+                ensureTileIsMutable();
+                tile_.add(m);
               } else {
-                tilesBuilder_.addMessage(m);
+                tileBuilder_.addMessage(m);
               }
               break;
             } // case 42
@@ -513,244 +513,244 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<Tile> tiles_ =
+    private java.util.List<Tile> tile_ =
       java.util.Collections.emptyList();
-    private void ensureTilesIsMutable() {
+    private void ensureTileIsMutable() {
       if (!((bitField0_ & 0x00000002) != 0)) {
-        tiles_ = new java.util.ArrayList<Tile>(tiles_);
+        tile_ = new java.util.ArrayList<Tile>(tile_);
         bitField0_ |= 0x00000002;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-            Tile, Tile.Builder, TileOrBuilder> tilesBuilder_;
+            Tile, Tile.Builder, TileOrBuilder> tileBuilder_;
 
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public java.util.List<Tile> getTilesList() {
-      if (tilesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(tiles_);
+    public java.util.List<Tile> getTileList() {
+      if (tileBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(tile_);
       } else {
-        return tilesBuilder_.getMessageList();
+        return tileBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public int getTilesCount() {
-      if (tilesBuilder_ == null) {
-        return tiles_.size();
+    public int getTileCount() {
+      if (tileBuilder_ == null) {
+        return tile_.size();
       } else {
-        return tilesBuilder_.getCount();
+        return tileBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Tile getTiles(int index) {
-      if (tilesBuilder_ == null) {
-        return tiles_.get(index);
+    public Tile getTile(int index) {
+      if (tileBuilder_ == null) {
+        return tile_.get(index);
       } else {
-        return tilesBuilder_.getMessage(index);
+        return tileBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder setTiles(
+    public Builder setTile(
         int index, Tile value) {
-      if (tilesBuilder_ == null) {
+      if (tileBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTilesIsMutable();
-        tiles_.set(index, value);
+        ensureTileIsMutable();
+        tile_.set(index, value);
         onChanged();
       } else {
-        tilesBuilder_.setMessage(index, value);
+        tileBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder setTiles(
+    public Builder setTile(
         int index, Tile.Builder builderForValue) {
-      if (tilesBuilder_ == null) {
-        ensureTilesIsMutable();
-        tiles_.set(index, builderForValue.build());
+      if (tileBuilder_ == null) {
+        ensureTileIsMutable();
+        tile_.set(index, builderForValue.build());
         onChanged();
       } else {
-        tilesBuilder_.setMessage(index, builderForValue.build());
+        tileBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder addTiles(Tile value) {
-      if (tilesBuilder_ == null) {
+    public Builder addTile(Tile value) {
+      if (tileBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTilesIsMutable();
-        tiles_.add(value);
+        ensureTileIsMutable();
+        tile_.add(value);
         onChanged();
       } else {
-        tilesBuilder_.addMessage(value);
+        tileBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder addTiles(
+    public Builder addTile(
         int index, Tile value) {
-      if (tilesBuilder_ == null) {
+      if (tileBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTilesIsMutable();
-        tiles_.add(index, value);
+        ensureTileIsMutable();
+        tile_.add(index, value);
         onChanged();
       } else {
-        tilesBuilder_.addMessage(index, value);
+        tileBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder addTiles(
+    public Builder addTile(
         Tile.Builder builderForValue) {
-      if (tilesBuilder_ == null) {
-        ensureTilesIsMutable();
-        tiles_.add(builderForValue.build());
+      if (tileBuilder_ == null) {
+        ensureTileIsMutable();
+        tile_.add(builderForValue.build());
         onChanged();
       } else {
-        tilesBuilder_.addMessage(builderForValue.build());
+        tileBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder addTiles(
+    public Builder addTile(
         int index, Tile.Builder builderForValue) {
-      if (tilesBuilder_ == null) {
-        ensureTilesIsMutable();
-        tiles_.add(index, builderForValue.build());
+      if (tileBuilder_ == null) {
+        ensureTileIsMutable();
+        tile_.add(index, builderForValue.build());
         onChanged();
       } else {
-        tilesBuilder_.addMessage(index, builderForValue.build());
+        tileBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder addAllTiles(
+    public Builder addAllTile(
         Iterable<? extends Tile> values) {
-      if (tilesBuilder_ == null) {
-        ensureTilesIsMutable();
+      if (tileBuilder_ == null) {
+        ensureTileIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tiles_);
+            values, tile_);
         onChanged();
       } else {
-        tilesBuilder_.addAllMessages(values);
+        tileBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder clearTiles() {
-      if (tilesBuilder_ == null) {
-        tiles_ = java.util.Collections.emptyList();
+    public Builder clearTile() {
+      if (tileBuilder_ == null) {
+        tile_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
-        tilesBuilder_.clear();
+        tileBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Builder removeTiles(int index) {
-      if (tilesBuilder_ == null) {
-        ensureTilesIsMutable();
-        tiles_.remove(index);
+    public Builder removeTile(int index) {
+      if (tileBuilder_ == null) {
+        ensureTileIsMutable();
+        tile_.remove(index);
         onChanged();
       } else {
-        tilesBuilder_.remove(index);
+        tileBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Tile.Builder getTilesBuilder(
+    public Tile.Builder getTileBuilder(
         int index) {
-      return getTilesFieldBuilder().getBuilder(index);
+      return getTileFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public TileOrBuilder getTilesOrBuilder(
+    public TileOrBuilder getTileOrBuilder(
         int index) {
-      if (tilesBuilder_ == null) {
-        return tiles_.get(index);  } else {
-        return tilesBuilder_.getMessageOrBuilder(index);
+      if (tileBuilder_ == null) {
+        return tile_.get(index);  } else {
+        return tileBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
     public java.util.List<? extends TileOrBuilder>
-         getTilesOrBuilderList() {
-      if (tilesBuilder_ != null) {
-        return tilesBuilder_.getMessageOrBuilderList();
+         getTileOrBuilderList() {
+      if (tileBuilder_ != null) {
+        return tileBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(tiles_);
+        return java.util.Collections.unmodifiableList(tile_);
       }
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Tile.Builder addTilesBuilder() {
-      return getTilesFieldBuilder().addBuilder(
+    public Tile.Builder addTileBuilder() {
+      return getTileFieldBuilder().addBuilder(
           Tile.getDefaultInstance());
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
-    public Tile.Builder addTilesBuilder(
+    public Tile.Builder addTileBuilder(
         int index) {
-      return getTilesFieldBuilder().addBuilder(
+      return getTileFieldBuilder().addBuilder(
           index, Tile.getDefaultInstance());
     }
     /**
-     * <code>repeated .Tile tiles = 5;</code>
+     * <code>repeated .Tile tile = 5;</code>
      */
     public java.util.List<Tile.Builder>
-         getTilesBuilderList() {
-      return getTilesFieldBuilder().getBuilderList();
+         getTileBuilderList() {
+      return getTileFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
             Tile, Tile.Builder, TileOrBuilder>
-        getTilesFieldBuilder() {
-      if (tilesBuilder_ == null) {
-        tilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getTileFieldBuilder() {
+      if (tileBuilder_ == null) {
+        tileBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 Tile, Tile.Builder, TileOrBuilder>(
-                tiles_,
+                tile_,
                 ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
-        tiles_ = null;
+        tile_ = null;
       }
-      return tilesBuilder_;
+      return tileBuilder_;
     }
     @Override
     public final Builder setUnknownFields(

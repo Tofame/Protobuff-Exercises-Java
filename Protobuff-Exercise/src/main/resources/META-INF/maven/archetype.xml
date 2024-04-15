@@ -1,0 +1,6 @@
+<archetype>
+  <id>Protobuff-Exercise</id>
+  <sources>
+    <source>src/main/java/Main.java</source>
+  </sources>
+</archetype>

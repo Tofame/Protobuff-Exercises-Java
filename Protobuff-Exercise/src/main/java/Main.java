@@ -1,30 +1,11 @@
-import Ex01.Person;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import Ex01.example01;
+import Ex02.example02;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //runExample01();
-    }
+        //example01.runExample01();
 
-    public static void runExample01() throws Exception {
-        // Using .Builder for building the Person
-        Person.Builder personBuilder = Person.newBuilder();
-        personBuilder.setName("Geralt Rivea");
-        personBuilder.setAge(31);
-
-        // We can immediately .build() after everything is done and use getters
-        Person personBuilt = personBuilder.build();
-        System.out.println(personBuilt.getName() + " <- gotten name from a person");
-
-        // Writing the personBuilt to a .bin file.
-        FileOutputStream output = new FileOutputStream("geralt.bin");
-        personBuilt.writeTo(output);
-        output.close();
-
-        // Reading from a .bin file
-        Person personRead = Person.parseFrom(new FileInputStream("geralt.bin"));
-        System.out.println(personRead.getName() + " <- gotten name from a person loaded from a .bin");
+        example02.runExample02();
     }
 }

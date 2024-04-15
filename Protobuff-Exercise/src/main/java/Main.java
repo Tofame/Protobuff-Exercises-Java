@@ -5,6 +5,10 @@ import java.io.FileOutputStream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        //runExample01();
+    }
+
+    public static void runExample01() throws Exception {
         // Using .Builder for building the Person
         Person.Builder personBuilder = Person.newBuilder();
         personBuilder.setName("Geralt Rivea");
@@ -22,6 +26,5 @@ public class Main {
         // Reading from a .bin file
         Person personRead = Person.parseFrom(new FileInputStream("geralt.bin"));
         System.out.println(personRead.getName() + " <- gotten name from a person loaded from a .bin");
-
     }
 }

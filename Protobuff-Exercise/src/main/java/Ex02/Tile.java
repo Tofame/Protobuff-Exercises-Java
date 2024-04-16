@@ -107,28 +107,6 @@ private static final long serialVersionUID = 0L;
   }
   private int itemMemoizedSerializedSize = -1;
 
-  public static final int X_FIELD_NUMBER = 4;
-  private int x_ = 0;
-  /**
-   * <code>int32 X = 4;</code>
-   * @return The x.
-   */
-  @Override
-  public int getX() {
-    return x_;
-  }
-
-  public static final int Y_FIELD_NUMBER = 5;
-  private int y_ = 0;
-  /**
-   * <code>int32 Y = 5;</code>
-   * @return The y.
-   */
-  @Override
-  public int getY() {
-    return y_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @Override
   public final boolean isInitialized() {
@@ -156,12 +134,6 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < item_.size(); i++) {
       output.writeInt32NoTag(item_.getInt(i));
-    }
-    if (x_ != 0) {
-      output.writeInt32(4, x_);
-    }
-    if (y_ != 0) {
-      output.writeInt32(5, y_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -194,14 +166,6 @@ private static final long serialVersionUID = 0L;
       }
       itemMemoizedSerializedSize = dataSize;
     }
-    if (x_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, x_);
-    }
-    if (y_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, y_);
-    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -229,10 +193,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!getItemList()
         .equals(other.getItemList())) return false;
-    if (getX()
-        != other.getX()) return false;
-    if (getY()
-        != other.getY()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -257,10 +217,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ITEM_FIELD_NUMBER;
       hash = (53 * hash) + getItemList().hashCode();
     }
-    hash = (37 * hash) + X_FIELD_NUMBER;
-    hash = (53 * hash) + getX();
-    hash = (37 * hash) + Y_FIELD_NUMBER;
-    hash = (53 * hash) + getY();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -378,7 +334,7 @@ private static final long serialVersionUID = 0L;
               Tile.class, Tile.Builder.class);
     }
 
-    // Construct using GeneratedProto.Tile.newBuilder()
+    // Construct using GeneratedEx02Proto.Tile.newBuilder()
     private Builder() {
 
     }
@@ -395,8 +351,6 @@ private static final long serialVersionUID = 0L;
       groundId_ = 0;
       isWalkable_ = false;
       item_ = emptyIntList();
-      x_ = 0;
-      y_ = 0;
       return this;
     }
 
@@ -448,12 +402,6 @@ private static final long serialVersionUID = 0L;
         result.isWalkable_ = isWalkable_;
         to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.x_ = x_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.y_ = y_;
-      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -484,12 +432,6 @@ private static final long serialVersionUID = 0L;
           item_.addAll(other.item_);
         }
         onChanged();
-      }
-      if (other.getX() != 0) {
-        setX(other.getX());
-      }
-      if (other.getY() != 0) {
-        setY(other.getY());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -543,16 +485,6 @@ private static final long serialVersionUID = 0L;
               input.popLimit(limit);
               break;
             } // case 26
-            case 32: {
-              x_ = input.readInt32();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 32
-            case 40: {
-              y_ = input.readInt32();
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 40
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -727,70 +659,6 @@ private static final long serialVersionUID = 0L;
     public Builder clearItem() {
       item_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
-      return this;
-    }
-
-    private int x_ ;
-    /**
-     * <code>int32 X = 4;</code>
-     * @return The x.
-     */
-    @Override
-    public int getX() {
-      return x_;
-    }
-    /**
-     * <code>int32 X = 4;</code>
-     * @param value The x to set.
-     * @return This builder for chaining.
-     */
-    public Builder setX(int value) {
-
-      x_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 X = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearX() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      x_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int y_ ;
-    /**
-     * <code>int32 Y = 5;</code>
-     * @return The y.
-     */
-    @Override
-    public int getY() {
-      return y_;
-    }
-    /**
-     * <code>int32 Y = 5;</code>
-     * @param value The y to set.
-     * @return This builder for chaining.
-     */
-    public Builder setY(int value) {
-
-      y_ = value;
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 Y = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearY() {
-      bitField0_ = (bitField0_ & ~0x00000010);
-      y_ = 0;
       onChanged();
       return this;
     }

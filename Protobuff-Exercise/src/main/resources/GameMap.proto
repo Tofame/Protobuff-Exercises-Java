@@ -1,21 +1,18 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "GeneratedProto";
+option java_package = "GeneratedEx02Proto";
 option optimize_for = SPEED;
 
 message Tile {
   optional int32 groundId = 1;
   optional bool isWalkable = 2;
   repeated int32 item = 3;
-
-  int32 X = 4;
-  int32 Y = 5;
 }
 
 message MapFloor {
-  optional int32 floorId = 4;
-  repeated Tile tile = 5;
+  optional int32 floorId = 1;
+  map<string,Tile> tileMap = 2;
 }
 
 message GameWorld {

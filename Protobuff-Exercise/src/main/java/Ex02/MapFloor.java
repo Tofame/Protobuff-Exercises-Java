@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private MapFloor() {
-    tile_ = java.util.Collections.emptyList();
   }
 
   @Override
@@ -31,6 +30,18 @@ private static final long serialVersionUID = 0L;
     return GameMap.internal_static_MapFloor_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 2:
+        return internalGetTileMap();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -40,10 +51,10 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int FLOORID_FIELD_NUMBER = 4;
+  public static final int FLOORID_FIELD_NUMBER = 1;
   private int floorId_ = 0;
   /**
-   * <code>optional int32 floorId = 4;</code>
+   * <code>optional int32 floorId = 1;</code>
    * @return Whether the floorId field is set.
    */
   @Override
@@ -51,7 +62,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>optional int32 floorId = 4;</code>
+   * <code>optional int32 floorId = 1;</code>
    * @return The floorId.
    */
   @Override
@@ -59,45 +70,83 @@ private static final long serialVersionUID = 0L;
     return floorId_;
   }
 
-  public static final int TILE_FIELD_NUMBER = 5;
+  public static final int TILEMAP_FIELD_NUMBER = 2;
+  private static final class TileMapDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        String, Tile> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<String, Tile>newDefaultInstance(
+                GameMap.internal_static_MapFloor_TileMapEntry_descriptor,
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                Tile.getDefaultInstance());
+  }
   @SuppressWarnings("serial")
-  private java.util.List<Tile> tile_;
-  /**
-   * <code>repeated .Tile tile = 5;</code>
-   */
-  @Override
-  public java.util.List<Tile> getTileList() {
-    return tile_;
+  private com.google.protobuf.MapField<
+      String, Tile> tileMap_;
+  private com.google.protobuf.MapField<String, Tile>
+  internalGetTileMap() {
+    if (tileMap_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          TileMapDefaultEntryHolder.defaultEntry);
+    }
+    return tileMap_;
+  }
+  public int getTileMapCount() {
+    return internalGetTileMap().getMap().size();
   }
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
   @Override
-  public java.util.List<? extends TileOrBuilder>
-      getTileOrBuilderList() {
-    return tile_;
+  public boolean containsTileMap(
+      String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetTileMap().getMap().containsKey(key);
   }
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * Use {@link #getTileMapMap()} instead.
    */
   @Override
-  public int getTileCount() {
-    return tile_.size();
+  @Deprecated
+  public java.util.Map<String, Tile> getTileMap() {
+    return getTileMapMap();
   }
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
   @Override
-  public Tile getTile(int index) {
-    return tile_.get(index);
+  public java.util.Map<String, Tile> getTileMapMap() {
+    return internalGetTileMap().getMap();
   }
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
   @Override
-  public TileOrBuilder getTileOrBuilder(
-      int index) {
-    return tile_.get(index);
+  public /* nullable */
+  Tile getTileMapOrDefault(
+      String key,
+      /* nullable */
+Tile defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<String, Tile> map =
+        internalGetTileMap().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
+   */
+  @Override
+  public Tile getTileMapOrThrow(
+      String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<String, Tile> map =
+        internalGetTileMap().getMap();
+    if (!map.containsKey(key)) {
+      throw new IllegalArgumentException();
+    }
+    return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -115,11 +164,14 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeInt32(4, floorId_);
+      output.writeInt32(1, floorId_);
     }
-    for (int i = 0; i < tile_.size(); i++) {
-      output.writeMessage(5, tile_.get(i));
-    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetTileMap(),
+        TileMapDefaultEntryHolder.defaultEntry,
+        2);
     getUnknownFields().writeTo(output);
   }
 
@@ -131,11 +183,17 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, floorId_);
+        .computeInt32Size(1, floorId_);
     }
-    for (int i = 0; i < tile_.size(); i++) {
+    for (java.util.Map.Entry<String, Tile> entry
+         : internalGetTileMap().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<String, Tile>
+      tileMap__ = TileMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, tile_.get(i));
+          .computeMessageSize(2, tileMap__);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -157,8 +215,8 @@ private static final long serialVersionUID = 0L;
       if (getFloorId()
           != other.getFloorId()) return false;
     }
-    if (!getTileList()
-        .equals(other.getTileList())) return false;
+    if (!internalGetTileMap().equals(
+        other.internalGetTileMap())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -174,9 +232,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FLOORID_FIELD_NUMBER;
       hash = (53 * hash) + getFloorId();
     }
-    if (getTileCount() > 0) {
-      hash = (37 * hash) + TILE_FIELD_NUMBER;
-      hash = (53 * hash) + getTileList().hashCode();
+    if (!internalGetTileMap().getMap().isEmpty()) {
+      hash = (37 * hash) + TILEMAP_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetTileMap().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -287,6 +345,28 @@ private static final long serialVersionUID = 0L;
       return GameMap.internal_static_MapFloor_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetTileMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetMutableTileMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -295,7 +375,7 @@ private static final long serialVersionUID = 0L;
               MapFloor.class, MapFloor.Builder.class);
     }
 
-    // Construct using GeneratedProto.MapFloor.newBuilder()
+    // Construct using GeneratedEx02Proto.MapFloor.newBuilder()
     private Builder() {
 
     }
@@ -310,13 +390,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       floorId_ = 0;
-      if (tileBuilder_ == null) {
-        tile_ = java.util.Collections.emptyList();
-      } else {
-        tile_ = null;
-        tileBuilder_.clear();
-      }
-      bitField0_ = (bitField0_ & ~0x00000002);
+      internalGetMutableTileMap().clear();
       return this;
     }
 
@@ -343,22 +417,9 @@ private static final long serialVersionUID = 0L;
     @Override
     public MapFloor buildPartial() {
       MapFloor result = new MapFloor(this);
-      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
-    }
-
-    private void buildPartialRepeatedFields(MapFloor result) {
-      if (tileBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
-          tile_ = java.util.Collections.unmodifiableList(tile_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.tile_ = tile_;
-      } else {
-        result.tile_ = tileBuilder_.build();
-      }
     }
 
     private void buildPartial0(MapFloor result) {
@@ -367,6 +428,10 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.floorId_ = floorId_;
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tileMap_ = internalGetTileMap();
+        result.tileMap_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -386,32 +451,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasFloorId()) {
         setFloorId(other.getFloorId());
       }
-      if (tileBuilder_ == null) {
-        if (!other.tile_.isEmpty()) {
-          if (tile_.isEmpty()) {
-            tile_ = other.tile_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureTileIsMutable();
-            tile_.addAll(other.tile_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.tile_.isEmpty()) {
-          if (tileBuilder_.isEmpty()) {
-            tileBuilder_.dispose();
-            tileBuilder_ = null;
-            tile_ = other.tile_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-            tileBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getTileFieldBuilder() : null;
-          } else {
-            tileBuilder_.addAllMessages(other.tile_);
-          }
-        }
-      }
+      internalGetMutableTileMap().mergeFrom(
+          other.internalGetTileMap());
+      bitField0_ |= 0x00000002;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -438,24 +480,20 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 32: {
+            case 8: {
               floorId_ = input.readInt32();
               bitField0_ |= 0x00000001;
               break;
-            } // case 32
-            case 42: {
-              Tile m =
-                  input.readMessage(
-                      Tile.parser(),
-                      extensionRegistry);
-              if (tileBuilder_ == null) {
-                ensureTileIsMutable();
-                tile_.add(m);
-              } else {
-                tileBuilder_.addMessage(m);
-              }
+            } // case 8
+            case 18: {
+              com.google.protobuf.MapEntry<String, Tile>
+              tileMap__ = input.readMessage(
+                  TileMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTileMap().getMutableMap().put(
+                  tileMap__.getKey(), tileMap__.getValue());
+              bitField0_ |= 0x00000002;
               break;
-            } // case 42
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -475,7 +513,7 @@ private static final long serialVersionUID = 0L;
 
     private int floorId_ ;
     /**
-     * <code>optional int32 floorId = 4;</code>
+     * <code>optional int32 floorId = 1;</code>
      * @return Whether the floorId field is set.
      */
     @Override
@@ -483,7 +521,7 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int32 floorId = 4;</code>
+     * <code>optional int32 floorId = 1;</code>
      * @return The floorId.
      */
     @Override
@@ -491,7 +529,7 @@ private static final long serialVersionUID = 0L;
       return floorId_;
     }
     /**
-     * <code>optional int32 floorId = 4;</code>
+     * <code>optional int32 floorId = 1;</code>
      * @param value The floorId to set.
      * @return This builder for chaining.
      */
@@ -503,7 +541,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional int32 floorId = 4;</code>
+     * <code>optional int32 floorId = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearFloorId() {
@@ -513,244 +551,131 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<Tile> tile_ =
-      java.util.Collections.emptyList();
-    private void ensureTileIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
-        tile_ = new java.util.ArrayList<Tile>(tile_);
-        bitField0_ |= 0x00000002;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-            Tile, Tile.Builder, TileOrBuilder> tileBuilder_;
-
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public java.util.List<Tile> getTileList() {
-      if (tileBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(tile_);
-      } else {
-        return tileBuilder_.getMessageList();
+    private com.google.protobuf.MapField<
+        String, Tile> tileMap_;
+    private com.google.protobuf.MapField<String, Tile>
+        internalGetTileMap() {
+      if (tileMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            TileMapDefaultEntryHolder.defaultEntry);
       }
+      return tileMap_;
     }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public int getTileCount() {
-      if (tileBuilder_ == null) {
-        return tile_.size();
-      } else {
-        return tileBuilder_.getCount();
+    private com.google.protobuf.MapField<String, Tile>
+        internalGetMutableTileMap() {
+      if (tileMap_ == null) {
+        tileMap_ = com.google.protobuf.MapField.newMapField(
+            TileMapDefaultEntryHolder.defaultEntry);
       }
+      if (!tileMap_.isMutable()) {
+        tileMap_ = tileMap_.copy();
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return tileMap_;
+    }
+    public int getTileMapCount() {
+      return internalGetTileMap().getMap().size();
     }
     /**
-     * <code>repeated .Tile tile = 5;</code>
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
      */
-    public Tile getTile(int index) {
-      if (tileBuilder_ == null) {
-        return tile_.get(index);
-      } else {
-        return tileBuilder_.getMessage(index);
-      }
+    @Override
+    public boolean containsTileMap(
+        String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetTileMap().getMap().containsKey(key);
     }
     /**
-     * <code>repeated .Tile tile = 5;</code>
+     * Use {@link #getTileMapMap()} instead.
      */
-    public Builder setTile(
-        int index, Tile value) {
-      if (tileBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureTileIsMutable();
-        tile_.set(index, value);
-        onChanged();
-      } else {
-        tileBuilder_.setMessage(index, value);
+    @Override
+    @Deprecated
+    public java.util.Map<String, Tile> getTileMap() {
+      return getTileMapMap();
+    }
+    /**
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
+     */
+    @Override
+    public java.util.Map<String, Tile> getTileMapMap() {
+      return internalGetTileMap().getMap();
+    }
+    /**
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
+     */
+    @Override
+    public /* nullable */
+    Tile getTileMapOrDefault(
+        String key,
+        /* nullable */
+Tile defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<String, Tile> map =
+          internalGetTileMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
+     */
+    @Override
+    public Tile getTileMapOrThrow(
+        String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<String, Tile> map =
+          internalGetTileMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new IllegalArgumentException();
       }
+      return map.get(key);
+    }
+    public Builder clearTileMap() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      internalGetMutableTileMap().getMutableMap()
+          .clear();
       return this;
     }
     /**
-     * <code>repeated .Tile tile = 5;</code>
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
      */
-    public Builder setTile(
-        int index, Tile.Builder builderForValue) {
-      if (tileBuilder_ == null) {
-        ensureTileIsMutable();
-        tile_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        tileBuilder_.setMessage(index, builderForValue.build());
-      }
+    public Builder removeTileMap(
+        String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableTileMap().getMutableMap()
+          .remove(key);
       return this;
     }
     /**
-     * <code>repeated .Tile tile = 5;</code>
+     * Use alternate mutation accessors instead.
      */
-    public Builder addTile(Tile value) {
-      if (tileBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureTileIsMutable();
-        tile_.add(value);
-        onChanged();
-      } else {
-        tileBuilder_.addMessage(value);
-      }
+    @Deprecated
+    public java.util.Map<String, Tile>
+        getMutableTileMap() {
+      bitField0_ |= 0x00000002;
+      return internalGetMutableTileMap().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
+     */
+    public Builder putTileMap(
+        String key,
+        Tile value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableTileMap().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
-     * <code>repeated .Tile tile = 5;</code>
+     * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
      */
-    public Builder addTile(
-        int index, Tile value) {
-      if (tileBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureTileIsMutable();
-        tile_.add(index, value);
-        onChanged();
-      } else {
-        tileBuilder_.addMessage(index, value);
-      }
+    public Builder putAllTileMap(
+        java.util.Map<String, Tile> values) {
+      internalGetMutableTileMap().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Builder addTile(
-        Tile.Builder builderForValue) {
-      if (tileBuilder_ == null) {
-        ensureTileIsMutable();
-        tile_.add(builderForValue.build());
-        onChanged();
-      } else {
-        tileBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Builder addTile(
-        int index, Tile.Builder builderForValue) {
-      if (tileBuilder_ == null) {
-        ensureTileIsMutable();
-        tile_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        tileBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Builder addAllTile(
-        Iterable<? extends Tile> values) {
-      if (tileBuilder_ == null) {
-        ensureTileIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tile_);
-        onChanged();
-      } else {
-        tileBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Builder clearTile() {
-      if (tileBuilder_ == null) {
-        tile_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-      } else {
-        tileBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Builder removeTile(int index) {
-      if (tileBuilder_ == null) {
-        ensureTileIsMutable();
-        tile_.remove(index);
-        onChanged();
-      } else {
-        tileBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Tile.Builder getTileBuilder(
-        int index) {
-      return getTileFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public TileOrBuilder getTileOrBuilder(
-        int index) {
-      if (tileBuilder_ == null) {
-        return tile_.get(index);  } else {
-        return tileBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public java.util.List<? extends TileOrBuilder>
-         getTileOrBuilderList() {
-      if (tileBuilder_ != null) {
-        return tileBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(tile_);
-      }
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Tile.Builder addTileBuilder() {
-      return getTileFieldBuilder().addBuilder(
-          Tile.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public Tile.Builder addTileBuilder(
-        int index) {
-      return getTileFieldBuilder().addBuilder(
-          index, Tile.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Tile tile = 5;</code>
-     */
-    public java.util.List<Tile.Builder>
-         getTileBuilderList() {
-      return getTileFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-            Tile, Tile.Builder, TileOrBuilder>
-        getTileFieldBuilder() {
-      if (tileBuilder_ == null) {
-        tileBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                Tile, Tile.Builder, TileOrBuilder>(
-                tile_,
-                ((bitField0_ & 0x00000002) != 0),
-                getParentForChildren(),
-                isClean());
-        tile_ = null;
-      }
-      return tileBuilder_;
     }
     @Override
     public final Builder setUnknownFields(

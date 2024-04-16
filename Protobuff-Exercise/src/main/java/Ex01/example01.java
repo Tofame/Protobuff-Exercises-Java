@@ -11,7 +11,7 @@ public class example01 {
         personBuilder.setAge(31);
 
         // We can immediately .build() after everything is done and use getters
-        Person personBuilt = personBuilder.build();
+        Person personBuilt  = personBuilder.build();
         System.out.println(personBuilt.getName() + " <- gotten name from a person");
 
         // Writing the personBuilt to a .bin file.

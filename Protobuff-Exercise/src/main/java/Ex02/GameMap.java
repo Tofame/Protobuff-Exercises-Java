@@ -25,6 +25,11 @@ public final class GameMap {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_MapFloor_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MapFloor_TileMapEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MapFloor_TileMapEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GameWorld_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -38,13 +43,15 @@ public final class GameMap {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\rGameMap.proto\"v\n\004Tile\022\025\n\010groundId\030\001 \001(" +
+      "\n\rGameMap.proto\"`\n\004Tile\022\025\n\010groundId\030\001 \001(" +
       "\005H\000\210\001\001\022\027\n\nisWalkable\030\002 \001(\010H\001\210\001\001\022\014\n\004item\030" +
-      "\003 \003(\005\022\t\n\001X\030\004 \001(\005\022\t\n\001Y\030\005 \001(\005B\013\n\t_groundId" +
-      "B\r\n\013_isWalkable\"A\n\010MapFloor\022\024\n\007floorId\030\004" +
-      " \001(\005H\000\210\001\001\022\023\n\004tile\030\005 \003(\0132\005.TileB\n\n\010_floor" +
-      "Id\"(\n\tGameWorld\022\033\n\010mapFloor\030\001 \003(\0132\t.MapF" +
-      "loorB\024\n\016GeneratedProtoH\001P\001b\006proto3"
+      "\003 \003(\005B\013\n\t_groundIdB\r\n\013_isWalkable\"\214\001\n\010Ma" +
+      "pFloor\022\024\n\007floorId\030\001 \001(\005H\000\210\001\001\022\'\n\007tileMap\030" +
+      "\002 \003(\0132\026.MapFloor.TileMapEntry\0325\n\014TileMap" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\024\n\005value\030\002 \001(\0132\005.Tile" +
+      ":\0028\001B\n\n\010_floorId\"(\n\tGameWorld\022\033\n\010mapFloo" +
+      "r\030\001 \003(\0132\t.MapFloorB\030\n\022GeneratedEx02Proto" +
+      "H\001P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -55,13 +62,19 @@ public final class GameMap {
     internal_static_Tile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Tile_descriptor,
-        new String[] { "GroundId", "IsWalkable", "Item", "X", "Y", "GroundId", "IsWalkable", });
+        new String[] { "GroundId", "IsWalkable", "Item", "GroundId", "IsWalkable", });
     internal_static_MapFloor_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_MapFloor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MapFloor_descriptor,
-        new String[] { "FloorId", "Tile", "FloorId", });
+        new String[] { "FloorId", "TileMap", "FloorId", });
+    internal_static_MapFloor_TileMapEntry_descriptor =
+      internal_static_MapFloor_descriptor.getNestedTypes().get(0);
+    internal_static_MapFloor_TileMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MapFloor_TileMapEntry_descriptor,
+        new String[] { "Key", "Value", });
     internal_static_GameWorld_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_GameWorld_fieldAccessorTable = new

@@ -1,7 +1,13 @@
 package Ex02;
 
+import Ex01.Person;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class example02 {
     public static void runExample02() throws Exception {
@@ -21,8 +27,21 @@ public class example02 {
         GameWorld gameWorld = gameWorldBuilder.build();
 
         // Debug print
-        //System.out.println(mapFloor.getTiles(0));
-        System.out.println(gameWorld);
+        //System.out.println(gameWorld);
+        System.out.println(gameWorld.getMapFloor(0).getTileMapMap().get("420_1"));
+        System.out.println("\n=============We have floor atm.");
+
+        // Writing the gameWorld to a .bin file.
+        FileOutputStream output = new FileOutputStream("gameWorld.bin");
+        gameWorld.writeTo(output);
+        output.close();
+
+        // Reading from a .bin file
+        GameWorld gameWorldImported = GameWorld.parseFrom(new FileInputStream("gameWorld.bin"));
+
+        // Debug print
+        //System.out.println(gameWorldImported);
+        System.out.println(gameWorldImported.getMapFloor(0).getTileMapMap().get("420_1"));
     }
     public static Tile createTile(int groundId) throws Exception {
         Tile.Builder tileBuilder = Tile.newBuilder();
@@ -38,7 +57,16 @@ public class example02 {
     public static MapFloor createFloor(int floorId, List<Tile> tiles) {
         MapFloor.Builder mapFloorBuilder = MapFloor.newBuilder();
         mapFloorBuilder.setFloorId(floorId); // Set the floor ID as needed
-        mapFloorBuilder.addAllTile(tiles); // Add all tiles to the MapFloor
+
+        // Populate tile_map
+        Map<String, Tile> tileMap = new HashMap<>();
+        int helpCounter = 1;
+        for (Tile tile : tiles) {
+            // Assuming you have some unique key for each tile, let's say concatenating x and y coordinates
+            String key = 420 + "_" + (helpCounter++);
+            tileMap.put(key, tile);
+        }
+        mapFloorBuilder.putAllTileMap(tileMap); // Use putAllTileMap to populate the map
 
         return mapFloorBuilder.build();
     }

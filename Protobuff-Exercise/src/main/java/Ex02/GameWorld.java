@@ -259,7 +259,7 @@ private static final long serialVersionUID = 0L;
               GameWorld.class, GameWorld.Builder.class);
     }
 
-    // Construct using GeneratedProto.GameWorld.newBuilder()
+    // Construct using GeneratedEx02Proto.GameWorld.newBuilder()
     private Builder() {
 
     }

@@ -8,37 +8,47 @@ public interface MapFloorOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>optional int32 floorId = 4;</code>
+   * <code>optional int32 floorId = 1;</code>
    * @return Whether the floorId field is set.
    */
   boolean hasFloorId();
   /**
-   * <code>optional int32 floorId = 4;</code>
+   * <code>optional int32 floorId = 1;</code>
    * @return The floorId.
    */
   int getFloorId();
 
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
-  java.util.List<Tile>
-      getTileList();
+  int getTileMapCount();
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
-  Tile getTile(int index);
+  boolean containsTileMap(
+      String key);
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * Use {@link #getTileMapMap()} instead.
    */
-  int getTileCount();
+  @Deprecated
+  java.util.Map<String, Tile>
+  getTileMap();
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
-  java.util.List<? extends TileOrBuilder>
-      getTileOrBuilderList();
+  java.util.Map<String, Tile>
+  getTileMapMap();
   /**
-   * <code>repeated .Tile tile = 5;</code>
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
    */
-  TileOrBuilder getTileOrBuilder(
-      int index);
+  /* nullable */
+Tile getTileMapOrDefault(
+      String key,
+      /* nullable */
+Tile defaultValue);
+  /**
+   * <code>map&lt;string, .Tile&gt; tileMap = 2;</code>
+   */
+  Tile getTileMapOrThrow(
+      String key);
 }
